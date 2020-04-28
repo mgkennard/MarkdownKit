@@ -53,18 +53,9 @@ class ViewController: UIViewController {
     })
   }
   
-  fileprivate var internetAction: UIAlertAction {
-    return UIAlertAction(title: "Internet",
-                         style: .default,
-                         handler: { [unowned self]_ in
-                          self.viewModel.requestTestPage()
-    })
-  }
-  
   fileprivate var actionSheetController: UIAlertController {
     let alert = UIAlertController(title: "Choose the Markdown source", message: nil, preferredStyle: .actionSheet)
     alert.addAction(resourcesAction)
-    alert.addAction(internetAction)
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
       alert.dismiss(animated: true, completion: nil)
     }))

@@ -8,7 +8,6 @@
 
 import Foundation
 import MarkdownKit
-import Alamofire
 
 class MarkdownKitViewModel {
   
@@ -28,17 +27,5 @@ class MarkdownKitViewModel {
 extension MarkdownKitViewModel {
   func parseString(markdownString: String) {
     markdownAttributedStringChanged?(markdownParser.parse(markdownString), nil)
-  }
-  
-  func requestTestPage() {
-    AF.request(testingURL).responseString { [weak self]response in
-      if let error = response.error {
-        self?.markdownAttributedStringChanged?(nil, error)
-        return
-      }
-      if let markdownString = try? response.result.get() {
-        self?.parseString(markdownString: markdownString)
-      }
-    }
   }
 }

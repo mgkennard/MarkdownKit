@@ -5,7 +5,6 @@ import PackageDescription
 let package = Package(
     name: "MarkdownKit",
     platforms: [
-        .macOS("10.10"),
         .iOS("9.0")
     ],
     products: [
